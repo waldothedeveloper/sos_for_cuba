@@ -15,6 +15,7 @@ export default async function Page({
     query: POST_QUERY,
     params: postParams,
   });
+
   if (!post) {
     return notFound();
   }
