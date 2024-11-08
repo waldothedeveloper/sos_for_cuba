@@ -9,5 +9,9 @@ export const POSTS_QUERY =
 
 export const POST_QUERY =
   defineQuery(`*[_type == "post" && slug.current == $slug][0]{
-  title, body, mainImage
+  title, body, mainImage,"_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
+    title,
+    slug,
+    language
+  },
 }`);
